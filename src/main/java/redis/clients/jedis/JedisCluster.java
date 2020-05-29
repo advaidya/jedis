@@ -2331,5 +2331,15 @@ public class JedisCluster extends BinaryJedisCluster implements JedisClusterComm
     }.run(sampleKey);
   }
 
+  @Override
+  public long tsAdd(final String sourceKey, final double value) {
+	return new JedisClusterCommand<Long>(connectionHandler, maxAttempts) {
+
+		@Override
+		public Long execute(Jedis connection) {
+			return connection.tsAdd(sourceKey, value);
+		}
+	}.run(sourceKey);
+  }
 
 }

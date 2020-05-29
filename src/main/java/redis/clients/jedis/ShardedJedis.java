@@ -1111,4 +1111,10 @@ public class ShardedJedis extends BinaryShardedJedis implements JedisCommands, C
     Jedis j = getShard(sampleKey);
     return j.sendCommand(cmd, args);
   }
+
+  @Override
+  public Long tsAdd(String key, double value) {
+	Jedis j = getShard(key);
+	return j.tsAdd(key, value);
+  }
 }

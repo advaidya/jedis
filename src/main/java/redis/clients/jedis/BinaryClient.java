@@ -2,6 +2,7 @@ package redis.clients.jedis;
 
 import static redis.clients.jedis.Protocol.toByteArray;
 import static redis.clients.jedis.Protocol.Command.*;
+import static redis.clients.jedis.Protocol.ModuleCommand.*;
 import static redis.clients.jedis.Protocol.Keyword.ENCODING;
 import static redis.clients.jedis.Protocol.Keyword.IDLETIME;
 import static redis.clients.jedis.Protocol.Keyword.LEN;
@@ -1550,6 +1551,11 @@ public class BinaryClient extends Connection {
   public void xinfoConsumers (byte[] key, byte[] group) {
 
     sendCommand(XINFO,Keyword.CONSUMERS.raw,key,group);
+  }
+
+  public void tsAdd(final byte[] key, final double value) {
+
+	sendCommand(TS_ADD, key, "*".getBytes(), toByteArray(value));
   }
 
 }

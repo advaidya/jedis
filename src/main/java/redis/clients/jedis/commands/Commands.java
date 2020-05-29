@@ -413,4 +413,6 @@ public interface Commands {
   void xinfoStream (String key);
   void xinfoGroup (String key);
   void xinfoConsumers (String key, String group);
+
+  void tsAdd(String key, double value);
 }

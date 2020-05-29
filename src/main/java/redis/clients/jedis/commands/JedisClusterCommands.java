@@ -20,6 +20,9 @@ import java.util.Map;
 import java.util.Set;
 
 public interface JedisClusterCommands {
+
+  long tsAdd(String key, double value);
+
   String set(String key, String value);
 
   String set(String key, String value, SetParams params);

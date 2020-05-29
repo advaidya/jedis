@@ -28,6 +28,9 @@ import redis.clients.jedis.params.ZIncrByParams;
  * Common interface for sharded and non-sharded Jedis
  */
 public interface JedisCommands {
+
+  Long tsAdd(String key, double value);
+
   String set(String key, String value);
 
   String set(String key, String value, SetParams params);

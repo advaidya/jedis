@@ -1336,5 +1336,11 @@ public class Client extends BinaryClient implements Commands {
     xinfoConsumers(SafeEncoder.encode(key),SafeEncoder.encode(group));
 
   }
+
+  @Override
+  public void tsAdd(String key, double value) {
+
+	  tsAdd(SafeEncoder.encode(key), value);
+  }
  
 }

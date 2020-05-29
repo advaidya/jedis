@@ -274,6 +274,22 @@ public final class Protocol {
     }
   }
 
+  public static enum ModuleCommand implements ProtocolCommand {
+
+	TS_ADD("TS.ADD");
+
+	private final byte[] raw;
+
+	ModuleCommand(String name) {
+	  raw = SafeEncoder.encode(name);
+	}
+
+	@Override
+	public byte[] getRaw() {
+		return raw;
+	}
+  }
+
   public static enum Keyword {
     AGGREGATE, ALPHA, ASC, BY, DESC, GET, LIMIT, MESSAGE, NO, NOSORT, PMESSAGE, PSUBSCRIBE,
     PUNSUBSCRIBE, OK, ONE, QUEUED, SET, STORE, SUBSCRIBE, UNSUBSCRIBE, WEIGHTS, WITHSCORES,

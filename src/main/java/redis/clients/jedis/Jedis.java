@@ -3990,4 +3990,11 @@ public class Jedis extends BinaryJedis implements JedisCommands, MultiKeyCommand
     client.sendCommand(cmd, args);
     return client.getOne();
   }
+
+  @Override
+  public Long tsAdd(String key, double value) {
+	checkIsInMultiOrPipeline();
+	client.tsAdd(key, value);
+	return client.getIntegerReply();
+  }
 }
